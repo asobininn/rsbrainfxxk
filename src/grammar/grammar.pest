@@ -1,14 +1,14 @@
-Operation = _{ PInc | PDec, | VInc | VDec, Output, Input }
+Operation = _{ PInc | PDec | VInc | VDec | Output | Input }
 	PInc = {">" }
 	PDec = { "<" }
 	VInc = { "+" }
 	VDec = { "-" }
 	Output = { "." }
 	Input = { "," }
-Repetition = { "[" ~ expr ~ "]" }
+Repetition = { "[" ~ Expr ~ "]" }
 
-Term = _{ operation | repetition }
-Expr = { (WHITESPACE* ~ term ~ WHITESPACE*)* }
+Term = _{ Operation | Repetition }
+Expr = { (WHITESPACE* ~ Term ~ WHITESPACE*)* }
 
-RsBrainfxxk = { SOI ~ expr ~ EOI }
+RsBrainfxxk = { SOI ~ Expr ~ EOI }
 WHITESPACE = _{ " " | "\t" | "\n" }
