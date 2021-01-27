@@ -1,0 +1,14 @@
+operation = _{ pinc | pdec | vinc | vdec | output | input }
+	pinc = {">" }
+	pdec = { "<" }
+	vinc = { "+" }
+	vdec = { "-" }
+	output = { "." }
+	input = { "," }
+repetition = { "[" ~ expr ~ "]" }
+
+term = _{ operation | repetition }
+expr = { (WHITESPACE* ~ term ~ WHITESPACE*)* }
+
+brainfuck = { SOI ~ expr ~ EOI }
+WHITESPACE = _{ " " | "\t" | "\n" }
