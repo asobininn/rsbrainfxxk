@@ -1,4 +1,4 @@
-Operation = _{ pinc | pdec | vinc | vdec | output | input }
+Operation = _{ PInc | PDec, | VInc | VDec, Output, Input }
 	PInc = {">" }
 	PDec = { "<" }
 	VInc = { "+" }
