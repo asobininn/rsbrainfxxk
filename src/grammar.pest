@@ -1,0 +1,9 @@
+Program = _{ SOI ~ (WHITESPACE* ~ Stmt ~ WHITESPACE*)* ~ EOI }
+
+Stmt = _{ Expr }
+
+Expr = { Operation | Repetition }
+Operation = @{ ">" | "<" | "+" | "-" | "." | "," }
+Repetition = { "[" ~ Expr* ~ "]" }
+
+WHITESPACE = _{ " " | "\t" | "\n" }
